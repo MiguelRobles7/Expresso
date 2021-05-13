@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Expresso</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      href="https://media.discordapp.net/attachments/621589785823281152/820236180506673182/Logo.png?width=676&height=676"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+    <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
+
+    <!--For Plugins external css-->
+    <link rel="stylesheet" href="assets/css/animate/animate.css" />
+    <link rel="stylesheet" href="assets/css/plugins.css" />
+
+    <!--Theme custom css -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!--Theme Responsive css-->
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+
+    <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  </head>
+
+  <style>
+    body {
+      overflow-x: hidden; /* Hide horizontal scrollbar */
+    }
+    body,
+    html {
+      height: 100%;
+    }
+    .bgimg {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url("images/banner.jpg");
+      min-height: 90%;
+    }
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      text-align: center;
+      border-collapse: collapse;
+      padding: 5px;
+      font-size: 2.5vw;
+      color: black;
+      margin-bottom: 10px;
+    }
+    h1 {
+      color: black;
+      font-size: 2vw;
+    }
+    h4 {
+      color: black;
+      font-size: 3vw;
+    }
+    .center {
+      margin: auto;
+      width: 85%;
+    }
+    .left {
+      float: left;
+      text-align: left;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0, 0, 0);
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 50%;
+    }
+
+    .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    ::-webkit-scrollbar {
+      width: 2px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  </style>
+
+  <body>
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content" style="text-align: center">
+        <h3 style="font-size: 3vw"><b>Ordered Successfully!</b></h3>
+        <h4 style="font-size: 1.8vw; margin-bottom: -20px">
+          Expect a message confirming your order! <br />
+          <br />
+          <b>Not replying will cancel your order.</b>
+        </h4>
+        <a
+          style="
+            padding: 10px;
+            font-size: 1.2rem;
+            border-radius: 4px;
+            width: 100%;
+            border: 1px solid #000;
+            text-transform: none;
+            transition: 0.6s;
+            margin-top: 30px;
+            color: #fff;
+            display: inline-block;
+            background: transparent;
+            line-height: 1.5em;
+            background-color: #000;
+          "
+          href="index.html"
+        >
+          Back to Menu
+        </a>
+      </div>
+    </div>
+
+    <!-- Start of Page -->
+    <header id="home" class="navbar-fixed-top" style="position: static">
+      <div class="main_menu_bg">
+        <div class="container">
+          <div class="row">
+            <nav class="navbar navbar-default">
+              <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button
+                    type="button"
+                    class="navbar-toggle collapsed"
+                    data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false"
+                  >
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <img
+                    style="height: 40px; width: 40px; margin-top: 5px; float: left"
+                    src="assets/images/logo1.png"
+                    alt=""
+                    href="./index.html"
+                  />
+                  <ul class="nav navbar-nav navbar-left">
+                    <li>
+                      <a href="./index.html"> &nbsp Home</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section style="background: url(assets/images/bannerbg.jpg) center center no-repeat; background-size: cover" id="slider">
+      <div class="slider_overlay">
+        <div class="container" style="width: 100vw; margin: auto">
+          <div class="row">
+            <div
+              class="main_slider_content wow zoomIn center-content"
+              data-wow-duration="1s"
+              style="width: 60%; margin: 0, 60px; position: relative; padding: 0"
+            >
+              <!-- Start of Mess -->
+
+              <div
+                style="
+                  padding-left: 6vw;
+                  padding-right: 6vw;
+                  padding-bottom: 2vw;
+                  min-height: 600px;
+                  background: url(assets/images/textbg.jpg) center center no-repeat;
+                  background-size: cover;
+                "
+              >
+                <div id="results" class="left">
+                  <h4 style="padding-top: 40px">
+                    <u> <b> Your contact details: </b> </u>
+                  </h4>
+                  <div id="details" style="margin-left: 2vw"></div>
+                  <h4 style="padding-top: 20px">
+                    <u> <b> Order Summary: </b> </u>
+                  </h4>
+                </div>
+                <table id="orders" style="width: 100%; margin-left: auto; margin-right: auto">
+                  <tr>
+                    <th>Orders</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                  </tr>
+                </table>
+
+                <button
+                  style="
+                    padding: 10px;
+                    font-size: 1.2rem;
+                    border-radius: 4px;
+                    width: 100%;
+                    border: 1px solid #000;
+                    text-transform: none;
+                    transition: 0.6s;
+                    color: #fff;
+                    display: inline-block;
+                    background: transparent;
+                    line-height: 1.5em;
+                    background-color: #000;
+                  "
+                  id="myBtn"
+                >
+                  Confirm
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <footer id="footer" class="footer">
+            <div class="container text-center">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="copyright wow zoomIn" data-wow-duration="3s">
+                    <p>Expresso 2021. All Rights Reserved</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </section>
+
+    <!-- For loading data -->
+    <script>
+      const list = document.getElementById("details");
+      const orders = document.getElementById("orders");
+      var totalQty = 0;
+      var totalVal = 0;
+      new URLSearchParams(window.location.search).forEach((value, name) => {
+        var namePrice = name.split("₱");
+        if (name == "Name" || name == "Contact" || name == "Short Message") {
+          var h = document.createElement("H1");
+          var t = document.createTextNode(`${name}: ${value}`);
+          h.appendChild(t);
+          list.appendChild(h);
+        } else if (value.length > 0) {
+          orders.innerHTML +=
+            "<tr><td>" + namePrice[0] + "</td><td>" + value + "</td><td>₱" + namePrice[1] * value + ".00</td></tr>";
+          totalVal += namePrice[1] * value;
+          totalQty = totalQty * 1 + value * 1;
+        }
+      });
+
+      orders.innerHTML += "<tr><td>" + "Total" + "</td><td>" + totalQty + "</td><td>₱" + totalVal + ".00</td></tr>";
+    </script>
+
+    <!-- For viewing modal -->
+    <script>
+      // Get the modal
+      var modal = document.getElementById("myModal");
+
+      // Get the button that opens the modal
+      var btn = document.getElementById("myBtn");
+
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+
+      // When the user clicks the button, open the modal
+      btn.onclick = function () {
+        modal.style.display = "block";
+      };
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+    </script>
+  </body>
+</html>

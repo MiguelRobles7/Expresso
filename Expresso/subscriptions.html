@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Expresso</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://media.discordapp.net/attachments/621589785823281152/820236180506673182/Logo.png?width=676&height=676"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+    <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
+
+    <!--For Plugins external css-->
+    <link rel="stylesheet" href="assets/css/animate/animate.css" />
+    <link rel="stylesheet" href="assets/css/plugins.css" />
+
+    <!--Theme custom css -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!--Theme Responsive css-->
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+
+    <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+    <script src="/products.js"></script>
+  </head>
+  <style>
+    body {
+      overflow-x: hidden; /* Hide horizontal scrollbar */
+    }
+    ::-webkit-scrollbar {
+      width: 2px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+    .productImg {
+      height: 170px;
+      width: 170px;
+      padding: 0;
+      float: right;
+    }
+    .productName {
+      margin: 0.5vw;
+      padding-left: 1.3vw;
+      font-size: 2vw;
+      margin-bottom: 0;
+    }
+    .productDescription {
+      margin: 0.7vw;
+      margin-top: 0;
+      padding-left: 1.3vw;
+      font-size: 1vw;
+    }
+    .productPrice {
+      margin: 0.7vw;
+      margin-top: 0;
+      margin-left: 1.8vw;
+      font-size: 1.2vw;
+      background-color: #dfc699;
+      color: #000;
+      padding-left: 8px;
+      padding-right: 8px;
+      text-align: center;
+      border-radius: 8px;
+      float: right;
+    }
+    .productInput {
+      margin: 0.7vw;
+      margin-top: 0;
+      width: 50px;
+    }
+    .subscriptionCheckbox {
+      display: none;
+    }
+    .subscriptionPanel {
+      border: 0;
+      background: none;
+      cursor: pointer;
+      transition-duration: 0.8s;
+    }
+    .subscriptionPanel:hover {
+      box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+      height: 105%;
+      width: 105%;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0, 0, 0);
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+      background-color: #000;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 50%;
+    }
+
+    .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .respoCont {
+      margin-left: 4vw;
+      margin-right: 3vw;
+      width: 110%;
+    }
+    @media screen and (max-width: 1200px) {
+      .respoCont {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        width: 100%;
+      }
+    }
+  </style>
+  <body>
+    <form action="results.html" method="GET">
+      <div id="coffee_newbie_modal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content" style="text-align: center">
+          <div class="features" id="contact">
+            <div class="slider_overlay">
+              <div class="container" style="width: 50%">
+                <div class="row" id="modalValueDump">
+                  <h1 style="margin: 1vw; margin-bottom: 0; color: #fff; font-size: 3vw">Customer Details</h1>
+                  <p style="margin: 1vw; margin-top: 0; font-size: 1vw; color: #fff">
+                    <strong>Please enter your contact details!</strong> All orders are to be paid on delivery!
+                  </p>
+                  <p>
+                    <input
+                      style="padding: 16px; display: block; border: none; border-bottom: 1px solid #ccc; width: 100%"
+                      type="text"
+                      placeholder="Name"
+                      required
+                      name="Name"
+                    />
+                  </p>
+                  <p>
+                    <input
+                      style="padding: 16px; display: block; border: none; border-bottom: 1px solid #ccc; width: 100%"
+                      type="tel"
+                      pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}"
+                      type="phone"
+                      placeholder="Contact Details"
+                      required
+                      name="Contact"
+                    />
+                  </p>
+                  <p>
+                    <input
+                      style="padding: 16px; display: block; border: none; border-bottom: 1px solid #ccc; width: 100%"
+                      type="text"
+                      placeholder="Message / Special requirements"
+                      required
+                      name="Short Message"
+                    />
+                  </p>
+                  <button
+                    style="
+                      font-size: 1.2rem;
+                      border: none;
+                      border-bottom: 1px solid #ccc;
+                      text-transform: none;
+                      transition: 0.6s;
+                      color: #000;
+                      display: inline-block;
+                      background: transparent;
+                      line-height: 1.5em;
+                      width: 100%;
+                      border: none;
+                      display: inline-block;
+                      padding: 8px;
+                      vertical-align: middle;
+                      overflow: hidden;
+                      text-decoration: none;
+                      background-color: white;
+                      text-align: center;
+                      cursor: pointer;
+                      white-space: nowrap;
+                      margin-bottom: 4vw;
+                    "
+                    type="submit"
+                  >
+                    Order Now!
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="preloader"><div class="loaded">&nbsp;</div></div>
+    <header id="home" class="navbar-fixed-top">
+      <div class="main_menu_bg">
+        <div class="container">
+          <div class="row">
+            <nav class="navbar navbar-default">
+              <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button
+                    type="button"
+                    class="navbar-toggle collapsed"
+                    data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false"
+                  >
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <img
+                    style="height: 40px; width: 40px; margin-top: 5px; float: left"
+                    src="assets/images/logo1.png"
+                    alt=""
+                    href="./index.html"
+                  />
+                  <ul class="nav navbar-nav navbar-left">
+                    <li>
+                      <a href="./index.html"> &nbsp Home</a>
+                    </li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><a href="./showcase.html">Product Showcase</a></li>
+                    <li><a href="./order.html">Order Pack</a></li>
+                    <li><a href="./subscriptions.html">Buy Subscription</a></li>
+                  </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+              </div>
+              <!-- /.container-fluid -->
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- End Header Section -->
+    <!-- content -->
+    <section style="background: url(assets/images/textbg.jpg) center center no-repeat; background-size: cover" id="slider">
+      <div class="container" style="width: 100%">
+        <div class="row">
+          <div class="main_slider text-center">
+            <div
+              class="main_slider_content wow zoomIn center-content"
+              data-wow-duration="1s"
+              style="width: 100%; padding-top: 100px"
+            >
+              <h1 style="font-size: 5vw; color: #000; margin-bottom: 0.2vw">Subscribe to a pack</h1>
+              <h4 style="font-size: 2vw; color: #000">
+                Subscribe to any pack by filling out your contact details below, then click on the pack of your choice, and get
+                its contents monthly! Cancel anytime by contacting us!
+              </h4>
+
+              <div class="container respoCont">
+                <div class="col-lg-3">
+                  <button class="subscriptionPanel">
+                    <img
+                      src="assets/images/coffee_newbie.png"
+                      onclick="modalApprear('Coffee Newbie Monthly Subscription₱12000')"
+                      style="border: #fff; border-radius: 5%"
+                    />
+                    <h2 style="color: #000">₱12,000</h2>
+                  </button>
+                </div>
+                <div class="col-lg-3">
+                  <button class="subscriptionPanel">
+                    <img
+                      src="assets/images/daily_drinker.png"
+                      onclick="modalApprear('Daily Drinker Monthly Subscription₱38000')"
+                      style="border: #fff; border-radius: 5%"
+                    />
+                    <h2 style="color: #000">₱38,000</h2>
+                  </button>
+                </div>
+                <div class="col-lg-3">
+                  <button class="subscriptionPanel">
+                    <img
+                      src="assets/images/coffee_enthusiast.png"
+                      onclick="modalApprear('Coffee Enthusiast Monthly Subscription₱40000')"
+                      style="border: #fff; border-radius: 5%"
+                    />
+                    <h2 style="color: #000">₱40,000</h2>
+                  </button>
+                </div>
+                <div class="col-lg-3">
+                  <button class="subscriptionPanel">
+                    <img
+                      src="assets/images/coffee_lover.png"
+                      onclick="modalApprear('Coffee Lover Monthly Subscription₱100000')"
+                      style="border: #fff; border-radius: 5%"
+                    />
+                    <h2 style="color: #000">₱100,000</h2>
+                  </button>
+                </div>
+              </div>
+              <!-- Start of Mess -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Footer-->
+    <footer id="footer" class="footer">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="copyright wow zoomIn" data-wow-duration="3s">
+              <p>Expresso 2021. All Rights Reserved</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="scrollup">
+      <a href="#"><i class="fa fa-chevron-up"></i></a>
+    </div>
+    <!-- For Coffee Newbie -->
+    <script>
+      function modalApprear(plan) {
+        // Get the modal
+        var modal = document.getElementById("coffee_newbie_modal");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        modal.style.display = "block";
+        let inputForm = document.createElement("input");
+        inputForm.setAttribute("type", "hidden");
+        inputForm.setAttribute("name", plan);
+        inputForm.setAttribute("value", 1);
+        document.getElementById("modalValueDump").appendChild(inputForm);
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+          modal.style.display = "none";
+        };
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        };
+      }
+    </script>
+
+    <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/jquery-easing/jquery.easing.1.3.js"></script>
+    <script src="assets/js/wow/wow.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
